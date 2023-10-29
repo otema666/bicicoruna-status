@@ -3,14 +3,23 @@ const url_info_estaciones = 'https://api.citybik.es/v2/networks/bicicorunha?fiel
 const url_coruna_offcial = "https://acoruna.publicbikesystem.net/customer/ube/gbfs/v1/en/station_status";
 
 // Request para saber el numero total de bicicletas
-fetch(url_bicis_totales)
+function uso_total(bicicletas_en_uso){
+  fetch(url_bicis_totales)
   .then(response => response.json())
   .then(data => {
     const bicis_electricas_totales = data.data._vehicle_count._mechanical_count;
     const bicis_mecanicas_totales = data.data._vehicle_count._ebike_count;
-    const info_total_bicis = "Electricas: " + bicis_electricas_totales + " \nMecanicas: " + bicis_mecanicas_totales;
+    const bicicletas_totales = bicis_electricas_totales + bicis_mecanicas_totales;
+    
+    const info_total_bicis = `
+    Electricas: ${bicis_electricas_totales} - Mecanicas: ${bicis_mecanicas_totales}\n
+    Uso de bicicletas: ${bicicletas_en_uso}/${bicicletas_totales}\n
+    Hay ${bicicletas_totales - bicicletas_en_uso} bicicletas disponibles en la ciudad.
+    `;
     document.getElementById('data1').textContent = info_total_bicis;
 });
+}
+
 
 function actualizarTabla(){
   const tableBody = document.querySelector("#data2 tbody");
@@ -42,7 +51,6 @@ function actualizarTabla(){
       }
         //console.log(objeto_estaciones);
       mostrar_tabla(objeto_estaciones);
-      
     })
     .catch(error => {
       console.error('Error:', error);
@@ -52,8 +60,10 @@ function actualizarTabla(){
   
 function mostrar_tabla(objeto_estaciones) {
   const tableBody = document.querySelector("#data2 tbody");
-
-  objeto_estaciones.forEach((objeto_estaciones) => {
+  let bicicletas_en_uso = 0;
+    objeto_estaciones.forEach((objeto_estaciones) => {
+    bicicletas_en_uso += objeto_estaciones.num_bikes_available;
+    console.log(bicicletas_en_uso);
     var num_total_docks = objeto_estaciones.num_bikes_available + objeto_estaciones.num_docks_available;
     var porcentaje_bicis = objeto_estaciones.num_bikes_available / num_total_docks * 100;
     var porcentaje_bicis_str = "\t(" + porcentaje_bicis.toFixed(2) + " %)";
@@ -89,6 +99,8 @@ function mostrar_tabla(objeto_estaciones) {
 
     tableBody.appendChild(row);
   });
+  uso_total(bicicletas_en_uso)
+
 }
 
 
