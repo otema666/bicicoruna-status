@@ -12,11 +12,12 @@ h2 {
 }
 
 table {
-    width: 90%;
+    width: 100%; /* Cambia el ancho al 100% */
     margin: 20px auto;
     background-color: #fff;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
+
 
 thead tr {
     background-color: #333;
@@ -25,9 +26,13 @@ thead tr {
 
 th {
     text-align: left;
-    padding: 12px;
+    padding: 5px; /* Reducir el espaciado en las celdas */
     border: 1px solid #444;
     white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 16px; /* Ajusta el valor al tamaño deseado */
+
 }
 
 tbody tr:nth-child(even) {
@@ -36,11 +41,13 @@ tbody tr:nth-child(even) {
 
 td {
     text-align: left;
-    padding: 12px;
+    padding: 5px; /* Reducir el espaciado en las celdas */
     border: 1px solid #444;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    font-size: 14px; /* Ajusta el valor al tamaño deseado */
+
 }
 
 td.bikes-yes {
@@ -51,4 +58,14 @@ td.bikes-yes {
 td.bikes-no {
     background-color: #ff7f7f;
     color: #333;
+}
+
+th, td {
+    text-align: left;
+    padding: 5px;
+    border: 1px solid #444;
+    white-space: nowrap;
+    /* Elimina las siguientes propiedades */
+    /* overflow: hidden; */
+    /* text-overflow: ellipsis; */
 }
