@@ -1,0 +1,44 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+  }
+  
+  thead tr {
+    background-color: #f2f2f2;
+  }
+  
+  th {
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  td {
+    text-align: left;
+    padding: 8px;
+    border: 1px solid #ccc;
+  }
+  
+  td.bikes-yes {
+    background-color: #7fff7f;
+  }
+  
+  td.bikes-no {
+    background-color: #ff7f7f;
+  }
+  
