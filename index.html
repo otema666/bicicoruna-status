@@ -3,10 +3,16 @@
 <head>
   <title>Bicicoruña status</title>
   <link rel="stylesheet" type="text/css" href="styles.css">
+	<link rel="icon" type="image/x-icon" href="/bicicoruna/icon.ico">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
+  <a href="/"><img id="otema" src="https://i.imgur.com/03ZX3nf.png"></a>
+  <header>
+    <img src="/bicicoruna/banner.png" alt="Banner">
+  </header>
+    <input type="text" id="busquedaEstaciones" placeholder="Buscar estación..." onkeyup="filtrarEstaciones()">
   <table id="data2">
     <thead>
       <tr>
@@ -25,9 +31,19 @@
     <tbody></tbody>
   </table>
   
-  <h4>Bicicletas totales:</h4>
-  <pre id="data1"></pre>
-  
+  <table id="data1">
+    <thead>
+      <tr>
+        <th>Eléctricas totales⚡</th>
+        <th>Mecánicas totales⚙️</th>
+        <th>Bicicletas en uso</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  <canvas id="graficoBarras" width="400" height="200"></canvas>
+  <div id="listaEstaciones"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
