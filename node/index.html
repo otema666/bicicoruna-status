@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bicicoruña App</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+	<link rel="icon" type="image/x-icon" href="icon.ico">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  <a href="/"><img id="otema" src="https://i.imgur.com/03ZX3nf.png"></a>
+  <header>
+    <img src="banner.png" alt="Banner">
+  </header>
+    <input type="text" id="busquedaEstaciones" placeholder="Buscar estación..." onkeyup="filtrarEstaciones()">
+  <table id="data2">
+    <thead>
+      <tr>
+        <th>Ubicación 📍</th>
+        <th>¿Hay bicis?</th>
+        <th>Eléctricas ⚡</th>
+        <th>Mecánicas ⚙️</th>
+        <th>Total</th>
+        <th>Permite reservas? ⚙️</th>
+        <th>Bicis Averiadas 🚳</th>
+        <th>Huecos Averiados ⛔</th>
+        <th>Estado ℹ️</th>
+        <th>Actualización 🕒</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+  
+  <table id="data1">
+    <thead>
+      <tr>
+        <th>Eléctricas totales⚡</th>
+        <th>Mecánicas totales⚙️</th>
+        <th>Bicicletas en uso</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  <canvas id="graficoBarras" width="400" height="200"></canvas>
+  <div id="listaEstaciones"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
